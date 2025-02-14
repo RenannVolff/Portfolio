@@ -1,83 +1,156 @@
-/* Fundo e estrutura geral */
+/* Importação de fontes e reset básico */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
 .portfolio-container {
-    padding: 2rem;
-    min-height: 100vh;
-    background: linear-gradient(to right, #4f46e5, #9333ea, #ec4899);
-    color: white;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.portfolio-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.about-me-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-me-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.tech-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tech-cell {
+  transition: transform 0.3s ease-in-out;
+}
+
+.tech-cell:hover {
+  transform: translateY(-5px);
+}
+
+.tech-image {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+.tech-image:hover {
+  transform: scale(1.1);
+}
+
+.panoramic-section {
+  padding: 40px 0;
+  animation: elevate 1s ease-in-out;
+}
+
+.panoramic-section:hover {
+  animation: elevateHover 0.3s ease-in-out forwards;
+}
+
+@keyframes elevate {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
-  /* Título principal */
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes elevateHover {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .about-me-cards {
+    flex-direction: column;
+  }
+  .tech-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tech-cell {
+    width: 33%;
+  }
+}
+
+@media (max-width: 480px) {
   .portfolio-title {
-    font-size: 3rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
   }
-  
-  /* Card */
-  .card {
-    background-color: white;
-    color: #111;
-    border-radius: 1rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    padding: 1.5rem;
-    max-width: 600px;
+  .tech-cell {
+    width: 50%;
   }
-  
-  .card h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .card p {
-    font-size: 1rem;
-    line-height: 1.6;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Botão */
-  .button {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1.2rem;
-    background-color: #4f46e5;
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #4338ca;
-  }
-  
-  /* Carousel */
-  .carousel-image {
-    border-radius: 1rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .carousel-caption {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  /* Seção interativa */
-  .interactive-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  @media (min-width: 640px) {
-    .interactive-section {
-      grid-template-columns: 1fr 1fr;
-    }
-  }  
+}

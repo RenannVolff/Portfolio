@@ -33,16 +33,37 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-      <h1 className="portfolio-title">Renann Portfolio</h1>
+      <h1 className="portfolio-title">Renann Portfólio</h1>
 
       <section className="card">
-        <h2>About Me</h2>
+        <h2>About Me / Sobre Mim</h2>
         <p>
         I am Renann Felipe Volff, a passionate developer focused on JavaScript, with knowledge of Python and C++, and always eager to learn new programming languages. 
         My expertise includes working with databases like MongoDB and MySQL, as well as tools like Unity, Blender, and Astah. 
         I love challenges and am always looking to learn something new.
+        <br></br>
+        <br></br>
+        Sou Renann Felipe Volff, um desenvolvedor apaixonado, focado em JavaScript, com conhecimento em Python e C++, e sempre ansioso para aprender novas linguagens de programação.
+        Minha experiência inclui trabalhar com bancos de dados como MongoDB e MySQL, bem como com ferramentas como Unity, Blender e Astah.
+        Adoro desafios e estou sempre buscando aprender algo novo.
         </p>
       </section>
+
+      <section className="about-me-section">
+        <h2>Exploring new programming languages /<br></br> Explorando novas linguagens de programação</h2>
+        <div className="about-me-cards">
+          <div className="card">
+            <p>I am Renann Felipe Volff, a passionate developer focused on JavaScript with knowledge in Python and C++.</p>
+          </div>
+          <div className="card">
+            <p>My expertise includes working with databases like MongoDB and MySQL, as well as tools like Unity, Blender, and Astah.</p>
+          </div>
+          <div className="card">
+            <p>I love challenges and am always looking to learn something new.</p>
+          </div>
+        </div>
+      </section>
+
 
       <section>
         <h2 className="portfolio-title">Photo of Me</h2>
