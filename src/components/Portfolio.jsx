@@ -1,14 +1,9 @@
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import "./Portfolio.css";
+import ParticleBackground from "./ParticlesBackground";
 
 const Portfolio = () => {
-  const photos = [
-    { src: "photo1.jpg", alt: "Photo 1", caption: "Caption 1" },
-    { src: "photo2.jpg", alt: "Photo 2", caption: "Caption 2" },
-    { src: "photo3.jpg", alt: "Photo 3", caption: "Caption 3" },
-  ];
-
   const technologies = [
     { name: "Blender", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" },
     { name: "C#", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
@@ -17,7 +12,6 @@ const Portfolio = () => {
     { name: "Figma", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
     { name: "Firebase", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original-wordmark.svg" },
     { name: "HTML", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" },
-    { name: "Intellij", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg" },
     { name: "JavaScript", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" },
     { name: "JSON", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg" },
     { name: "MongoDB", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg" },
@@ -31,69 +25,190 @@ const Portfolio = () => {
     { name: "VIteJS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
   ];
 
+  const skills = [
+    {
+      category: "Linguagens em Aprendizado",
+      items: [
+        "PHP - Linguagem de script voltada para desenvolvimento web dinâmico.",
+        "TypeScript - Tipagem estática para JavaScript",
+        "Java - Linguagem robusta e amplamente utilizada para desenvolvimento web, mobile e desktop",
+        "IntelliJ IDEA - IDE poderosa para desenvolvimento em Java e outras linguagens",
+        "Stack Overflow - Plataforma essencial para solucionar dúvidas e aprender com a comunidade",
+        "Unreal Engine - Motor gráfico avançado para criação de jogos e experiências interativas",
+        "Visual Studio - IDE completa para desenvolvimento em diversas linguagens, incluindo C#, .NET e mais"
+      ]
+    },
+    {
+      category: "Áreas de Interesse",
+      items: [
+        "Desenvolvimento de Jogos - Criação de experiências interativas utilizando motores gráficos como Unity e Unreal Engine",
+        "Inteligência Artificial",
+        "Computação Gráfica",
+        "Desenvolvimento Estilizado",
+        "Arquitetura de Software"
+      ]
+    },
+    {
+      category: "Soft Skills",
+      items: [
+        "Trabalho em Equipe",
+        "Comunicação Efetiva",
+        "Resolução de Problemas",
+        "Pensamento Analítico",
+        "Adaptabilidade",
+        "Aprendizado Contínuo"
+      ]
+    }
+  ];
+
+  const [headerRef, headerInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [aboutRef, aboutInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [skillsRef, skillsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [techRef, techInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <div className="portfolio-container">
-      <h1 className="portfolio-title">Renann Portfólio</h1>
+      <ParticleBackground />
 
-      <section className="card">
-        <h2>About Me / Sobre Mim</h2>
-        <p>
-        I am Renann Felipe Volff, a passionate developer focused on JavaScript, with knowledge of Python and C++, and always eager to learn new programming languages. 
-        My expertise includes working with databases like MongoDB and MySQL, as well as tools like Unity, Blender, and Astah. 
-        I love challenges and am always looking to learn something new.
-        <br></br>
-        <br></br>
-        Sou Renann Felipe Volff, um desenvolvedor apaixonado, focado em JavaScript, com conhecimento em Python e C++, e sempre ansioso para aprender novas linguagens de programação.
-        Minha experiência inclui trabalhar com bancos de dados como MongoDB e MySQL, bem como com ferramentas como Unity, Blender e Astah.
-        Adoro desafios e estou sempre buscando aprender algo novo.
-        </p>
-      </section>
+      <header className="nav-header">
+        <motion.nav 
+          className="nav-links"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <a href="#about" className="nav-link">Sobre</a>
+          <a href="#skills" className="nav-link">Habilidades</a>
+          <a href="#tech" className="nav-link">Tecnologias</a>
+        </motion.nav>
+      </header>
 
-      <section className="about-me-section">
-        <h2>Exploring new programming languages /<br></br> Explorando novas linguagens de programação</h2>
-        <div className="about-me-cards">
-          <div className="card">
-            <p>I am Renann Felipe Volff, a passionate developer focused on JavaScript with knowledge in Python and C++.</p>
-          </div>
-          <div className="card">
-            <p>My expertise includes working with databases like MongoDB and MySQL, as well as tools like Unity, Blender, and Astah.</p>
-          </div>
-          <div className="card">
-            <p>I love challenges and am always looking to learn something new.</p>
-          </div>
+      <motion.section
+        ref={headerRef}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: headerInView ? 1 : 0, scale: headerInView ? 1 : 0.8 }}
+        transition={{ duration: 0.8 }}
+        className="header-section glass-morphism"
+      >
+        <h1 className="portfolio-title">Renann Portfólio</h1>
+      </motion.section>
+
+      <motion.section
+        id="about"
+        ref={aboutRef}
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: aboutInView ? 1 : 0, x: aboutInView ? 0 : -100 }}
+        transition={{ duration: 0.8 }}
+        className="about-section glass-morphism"
+      >
+        <h2 className="section-title">About Me / Sobre Mim</h2>
+        <div className="about-content">
+          <motion.p 
+            className="about-text"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: aboutInView ? 1 : 0, y: aboutInView ? 0 : 20 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            I am Renann Felipe Volff, a passionate developer focused on JavaScript, with knowledge of Python and C++. 
+            My expertise includes working with databases like MongoDB and MySQL, as well as tools like Unity, Blender, and various development environments.
+            I love challenges and am always looking to learn something new.
+          </motion.p>
+          <motion.p 
+            className="about-text"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: aboutInView ? 1 : 0, y: aboutInView ? 0 : 20 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Sou Renann Felipe Volff, um desenvolvedor apaixonado, focado em JavaScript, com conhecimento em Python e C++.
+            Minha experiência inclui trabalhar com bancos de dados como MongoDB e MySQL, bem como com ferramentas como Unity, Blender e diversos ambientes de desenvolvimento.
+            Adoro desafios e estou sempre buscando aprender algo novo.
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
-
-      <section>
-        <h2 className="portfolio-title">Photo of Me</h2>
-        <Carousel showThumbs={false} infiniteLoop autoPlay>
-          {photos.map((photo, index) => (
-            <div key={index}>
-              <img src={photo.src} alt={photo.alt} className="carousel-image" />
-              <p className="carousel-caption">{photo.caption}</p>
-            </div>
-          ))}
-        </Carousel>
-      </section>
-
-      <section className="panoramic-section">
-        <h2 className="portfolio-title">Technological Knowledge</h2>
-        <table className="tech-table" style={{ margin: "0 auto" }}>
-          <tbody>
-            {Array.from({ length: Math.ceil(technologies.length / 5) }).map((_, rowIndex) => (
-              <tr key={rowIndex}>
-                {technologies.slice(rowIndex * 5, rowIndex * 5 + 5).map((tech, colIndex) => (
-                  <td key={colIndex} className="tech-cell" style={{ textAlign: "center", padding: "20px" }}>
-                    <h3 className="tech-name">{tech.name}</h3>
-                    <img src={tech.image} alt={tech.name} className="tech-image" style={{ width: "80px", height: "80px", display: "block", margin: "10px auto" }} />
-                  </td>
+      <motion.section
+        id="skills"
+        ref={skillsRef}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: skillsInView ? 1 : 0 }}
+        transition={{ duration: 0.8 }}
+        className="skills-section glass-morphism"
+      >
+        <h2 className="section-title">Skills / Habilidades</h2>
+        <div className="skills-grid">
+          {skills.map((skillGroup, groupIndex) => (
+            <motion.div
+              key={groupIndex}
+              className="skill-group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: skillsInView ? 1 : 0, y: skillsInView ? 0 : 20 }}
+              transition={{ duration: 0.5, delay: groupIndex * 0.2 }}
+            >
+              <h3 className="skill-category">{skillGroup.category}</h3>
+              <ul className="skill-list">
+                {skillGroup.items.map((item, itemIndex) => (
+                  <motion.li
+                    key={itemIndex}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: skillsInView ? 1 : 0, x: skillsInView ? 0 : -20 }}
+                    transition={{ duration: 0.5, delay: groupIndex * 0.2 + itemIndex * 0.1 }}
+                    className="skill-item"
+                  >
+                    {item}
+                  </motion.li>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        id="tech"
+        ref={techRef}
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: techInView ? 1 : 0, y: techInView ? 0 : 100 }}
+        transition={{ duration: 0.8 }}
+        className="tech-section glass-morphism"
+      >
+        <h2 className="section-title">Technology Stack</h2>
+        <div className="tech-grid">
+          {technologies.map((tech, index) => (
+            <motion.div
+              key={index}
+              className="tech-item"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: techInView ? 1 : 0, scale: techInView ? 1 : 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ 
+                scale: 1.1,
+                rotate: [0, -5, 5, -5, 0],
+                transition: { duration: 0.3 }
+              }}
+            >
+              <div className="tech-icon-wrapper">
+                <img src={tech.image} alt={tech.name} className="tech-icon" />
+              </div>
+              <p className="tech-name">{tech.name}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
     </div>
   );
 };
