@@ -1,14 +1,14 @@
 # Renann's Portfolio
 
 ## Descrição
-Este é um portfólio interativo desenvolvido utilizando **React.js** com **Vite**. O projeto apresenta informações sobre o desenvolvedor, um carrossel de imagens e uma seção de conhecimentos tecnológicos em um layout dinâmico e responsivo.
+Este é um portfólio interativo desenvolvido utilizando **React.js** com **Vite**. O projeto apresenta informações sobre o desenvolvedor, uma seção de conhecimentos tecnológicos em um layout dinâmico e responsivo usando JavaScript e TypeScript.
 
 ## Tecnologias Utilizadas
 - **React.js**: Biblioteca JavaScript para criação de interfaces de usuário.
 - **Vite**: Ferramenta de build rápida para projetos em React.
-- **CSS**: Para estilização personalizada.
+- **CSS**: Para estilização personalizada e animada do código principal.
 - **Framer Motion**: Para animações suaves.
-- **React Responsive Carousel**: Para exibição de imagens em carrossel.
+- **React Responsive Carousel**: monitora a visibilidade de elementos na tela, permitindo acionar animações, lazy loading e eventos com base no scroll.
 
 ## Estrutura do Projeto
 ```
@@ -16,9 +16,9 @@ portfolio/
 │-- src/
 │   ├── assets/  # Imagens e outros arquivos estáticos
 │   ├── components/
-│   │   ├── Portfolio.js  # Componente principal do portfólio
-│   │   ├── Carousel.js  # Componente do carrossel de imagens
-│   │   ├── TechTable.js  # Componente da tabela de tecnologias
+│   │   ├── ParticlesBackground.tsx  # Componente responsável pelas animações de fundo da página
+│   │   ├── Portfolio.css  # Componente principal do portfólio onde contém as informações presentes na tela do usuário
+│   │   ├── Portfolio.jsx  # Componente da estilização e animação do código principal
 │   ├── App.js  # Arquivo principal
 │   ├── main.jsx  # Ponto de entrada do React
 │-- public/
@@ -54,8 +54,9 @@ portfolio/
    ```
 
 ## Funcionalidades
+- Fundo animado usando TypeScript para gerar uma aparência mais agradável ao usuário
 - Exibição interativa de informações do desenvolvedor.
-- Carrossel de imagens dinâmico.
+- Exibição sobre as linguagens em aprendizado e sobre os conhecimentos, respectivamente.
 - Seção organizada de conhecimentos tecnológicos em formato de tabela.
 
 ## Contribuição
