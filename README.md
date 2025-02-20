@@ -30,7 +30,7 @@ portfolio/
 ## Como Executar o Projeto
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/seu-usuario/portfolio.git
+   https://github.com/RenannVolff/Portfolio.git
    ```
 
 2. Acesse o diretório do projeto:
