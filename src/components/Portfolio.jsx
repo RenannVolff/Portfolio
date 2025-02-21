@@ -42,21 +42,21 @@ const Portfolio = () => {
       category: "Áreas de Interesse",
       items: [
         "Desenvolvimento de Jogos - Criação de experiências interativas utilizando motores gráficos como Unity e Unreal Engine",
-        "Inteligência Artificial",
-        "Computação Gráfica",
-        "Desenvolvimento Estilizado",
-        "Arquitetura de Software"
+        "Inteligência Artificial - Exploração de algoritmos de aprendizado de máquina e automação inteligente",
+        "Computação Gráfica - Modelagem 3D, renderização e efeitos visuais para jogos e animações",
+        "Desenvolvimento Estilizado - Foco em design e estética para interfaces visuais atraentes e modernas",
+        "Arquitetura de Software - Estruturação eficiente de sistemas para escalabilidade e manutenção"
       ]
     },
     {
       category: "Soft Skills",
       items: [
-        "Trabalho em Equipe",
-        "Comunicação Efetiva",
-        "Resolução de Problemas",
-        "Pensamento Analítico",
-        "Adaptabilidade",
-        "Aprendizado Contínuo"
+        "Trabalho em Equipe - Colaboração eficiente em projetos, promovendo um ambiente produtivo e harmonioso",
+        "Comunicação Efetiva - Transmissão clara de ideias e informações, facilitando a interação e o alinhamento entre equipes",
+        "Resolução de Problemas - Identificação e implementação de soluções eficazes para desafios técnicos e operacionais",
+        "Pensamento Analítico - Avaliação criteriosa de cenários e dados para embasar decisões estratégicas e técnicas",
+        "Adaptabilidade - Capacidade de ajustar-se rapidamente a novas tecnologias, metodologias e desafios do mercado",
+        "Aprendizado Contínuo - Busca constante por novos conhecimentos e aprimoramento de habilidades para evolução profissional"
       ]
     }
   ];
