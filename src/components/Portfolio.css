@@ -1,20 +1,35 @@
+/* 
+  Animação para criar um efeito de gradiente animado.
+  O fundo se move da esquerda para a direita e volta ao início.
+*/
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* 
+  Animação que faz um elemento "flutuar" para cima e para baixo.
+  Útil para criar um efeito sutil de movimento contínuo.
+*/
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
+/* 
+  Animação de brilho, criando um efeito de reflexo se movendo da esquerda para a direita.
+*/
 @keyframes shine {
   0% { background-position: -100% 50%; }
   100% { background-position: 200% 50%; }
 }
 
+/* 
+  Container principal do portfólio.
+  Define largura máxima, centraliza o conteúdo e define um fundo gradiente suave.
+*/
 .portfolio-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -25,6 +40,10 @@
   background: linear-gradient(45deg, #f3f4f6, #ffffff);
 }
 
+/* 
+  Cabeçalho de navegação com efeito de vidro (glassmorphism).
+  Fica fixo no topo ao rolar a página e tem um leve desfoque no fundo.
+*/
 .nav-header {
   position: sticky;
   top: 0;
@@ -40,12 +59,20 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* 
+  Lista de links do menu de navegação.
+  Exibe os itens lado a lado com espaçamento entre eles.
+*/
 .nav-links {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 
+/* 
+  Estilização dos links do menu.
+  Adiciona padding, bordas arredondadas e um efeito de transição ao passar o mouse.
+*/
 .nav-link {
   text-decoration: none;
   color: #333;
@@ -59,6 +86,10 @@
   overflow: hidden;
 }
 
+/* 
+  Efeito de brilho ao passar o mouse sobre o link do menu.
+  Um gradiente se move da esquerda para a direita.
+*/
 .nav-link::before {
   content: '';
   position: absolute;
@@ -75,15 +106,26 @@
   transition: 0.5s;
 }
 
+/* 
+  Efeito hover nos links do menu.
+  Muda a cor de fundo e eleva ligeiramente o link.
+*/
 .nav-link:hover {
   background: rgba(79, 172, 254, 0.15);
   transform: translateY(-2px);
 }
 
+/* 
+  Aplica a animação de brilho quando o mouse passa sobre o link.
+*/
 .nav-link:hover::before {
   animation: shine 1.5s;
 }
 
+/* 
+  Estilização do efeito glassmorphism aplicado a seções do site.
+  Cria um fundo semitransparente com bordas arredondadas e sombra.
+*/
 .glass-morphism {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -126,6 +168,10 @@
   animation: shine 2s;
 }
 
+/* 
+  Título principal do portfólio.
+  Utiliza um gradiente animado aplicado ao texto.
+*/
 .portfolio-title {
   font-size: 3.5rem;
   text-align: center;
@@ -155,7 +201,10 @@
   text-align: justify;
 }
 
-/* Skills Section Styles */
+/* 
+  Estilização da seção de habilidades.
+  Usa grid para distribuir os itens e adicionar espaçamento uniforme.
+*/
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -163,6 +212,10 @@
   padding: 1rem;
 }
 
+/* 
+  Cartão individual de cada habilidade.
+  Usa bordas arredondadas e um fundo semitransparente.
+*/
 .skill-group {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
@@ -196,7 +249,10 @@
   transform: translateX(10px);
 }
 
-/* Tech Grid Styles */
+/* 
+  Estilização da seção de tecnologias.
+  Os itens flutuam levemente para criar um efeito dinâmico.
+*/
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -257,7 +313,9 @@
   color: #4facfe;
 }
 
-/* Section Spacing */
+/* 
+  Estilização do cabeçalho para as palavras que percorrem entre cada seção 
+*/
 .header-section {
   text-align: center;
   padding: 5rem 2rem;
@@ -277,7 +335,9 @@
   padding: 4rem 2rem;
 }
 
-/* Responsive Design */
+/* 
+  Estilizações para tornar o layout responsivo em telas menores.
+*/
 @media (max-width: 768px) {
   .portfolio-container {
     padding: 10px;

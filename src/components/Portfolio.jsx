@@ -1,9 +1,15 @@
+// Importa a biblioteca Framer Motion para animações
 import { motion } from "framer-motion";
+// Importa o hook useInView da biblioteca react-intersection-observer para detectar se um elemento está visível na tela
 import { useInView } from "react-intersection-observer";
-import "./Portfolio.css";
+// Importa o arquivo CSS para estilização do componente
+import "./Portfolio.css"; 
+// Importa o componente ParticleBackground que adiciona um efeito de partículas ao fundo
 import ParticleBackground from "./ParticlesBackground";
 
+// Declaração do componente Portfólio
 const Portfolio = () => {
+  // Lista de tecnologias com nome e imagem associada
   const technologies = [
     { name: "Blender", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" },
     { name: "C#", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
@@ -25,6 +31,7 @@ const Portfolio = () => {
     { name: "VIteJS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
   ];
 
+  // Lista de habilidades categorizadas
   const skills = [
     {
       category: "Linguagens em Aprendizado",
@@ -61,6 +68,7 @@ const Portfolio = () => {
     }
   ];
 
+  // Ciração de referências para detectar quando seções entram na tela
   const [headerRef, headerInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -82,9 +90,10 @@ const Portfolio = () => {
   });
 
   return (
-    <div className="portfolio-container">
+    <div className="portfolio-container"> {/* Adiciona o efeito de partículas ao fundo */}
       <ParticleBackground />
 
+      {/* Barra de navegação */}
       <header className="nav-header">
         <motion.nav 
           className="nav-links"
@@ -98,6 +107,7 @@ const Portfolio = () => {
         </motion.nav>
       </header>
 
+      {/* Seção de apresentação */}
       <motion.section
         ref={headerRef}
         initial={{ opacity: 0, scale: 0.8 }}
@@ -108,6 +118,7 @@ const Portfolio = () => {
         <h1 className="portfolio-title">Renann Portfólio</h1>
       </motion.section>
 
+      {/* Seção Sobre Mim */}
       <motion.section
         id="about"
         ref={aboutRef}
@@ -141,6 +152,7 @@ const Portfolio = () => {
         </div>
       </motion.section>
 
+      {/* Seção de Skills e Habilidades */}
       <motion.section
         id="skills"
         ref={skillsRef}
@@ -178,6 +190,7 @@ const Portfolio = () => {
         </div>
       </motion.section>
 
+      {/* Seção das Tecnologias aprendidas e utilizadas */}
       <motion.section
         id="tech"
         ref={techRef}
@@ -213,4 +226,5 @@ const Portfolio = () => {
   );
 };
 
+// Exporta o componente Portfólio para ser usado em outros arquivos
 export default Portfolio;
